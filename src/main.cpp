@@ -2444,7 +2444,7 @@ bool ProcessBlock(CNode* pfrom, CBlock* pblock, std::string& strErr)
         mapOrphanBlocksByPrev.erase(hashPrev);
     }
 
-    printf("ProcessBlock: ACCEPTED\n");
+    //printf("ProcessBlock: ACCEPTED\n"); //anyway...if is not accepted will advice us, keep space in disk
 	// If turned on MultiSend will send a transaction (or more) on the 30th confirmation of a stake
 	if (pwalletMain->fMultiSend && !pwalletMain->fMultiSendCoinStake)
 		if (!pwalletMain->MultiSend() )
@@ -3627,7 +3627,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         CBlock block;
         vRecv >> block;
 
-        printf("received block %s\n", block.GetHash().ToString().substr(0,20).c_str());
+        //printf("received block %s\n", block.GetHash().ToString().substr(0,20).c_str());
         // block.print();
 
         CInv inv(MSG_BLOCK, block.GetHash());
